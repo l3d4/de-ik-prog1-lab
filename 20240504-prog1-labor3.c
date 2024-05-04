@@ -2,7 +2,7 @@
 PROGRAMOZÁSI NYELVEK 1 LABOR
 2024.05.04 TEOK II 108
 https://elearning.unideb.hu/pluginfile.php/165380/mod_resource/content/1/Gyak2.pdf
-Sztring kezelés
+Sztring kezelés 
 */
 
 #include <stdio.h>
