@@ -2,7 +2,6 @@
 PROGRAMOZÁSI NYELVEK 1 LABOR
 2024.05.04 TEOK II 108
 https://elearning.unideb.hu/pluginfile.php/165380/mod_resource/content/1/Gyak2.pdf
-Sztring kezelés 
 */
 
 #include <stdio.h>
@@ -36,18 +35,22 @@ char* double_digits(char* s) {
 void test_7f() {
     FILE* f_in = fopen("feladat7.txt", "r");
     
-    char* sor[300];
+    char sor[300];
 
     while(fgets(sor, 300, f_in) != NULL) {
         int hossz = strlen(sor);
         sor[hossz-1] = '\0';
 
-        
+        if(strcmp(sor,"END") == 0) { // strcmp három értéket ad vissza
+            break;
+        }
+
+        printf("Duplikált string = %s\n", double_digits(sor));
     }
 }
 
 int main() {
-    test7n();
+    test_7f();
 
     return 0;
 }
