@@ -19,10 +19,29 @@ void beolvas_4f()
 {
     char sor[100];
     int max = 0;
+    char max_sor[100]; // Leghosszabb sor tárolása
 
     while(fgets(sor, 100, stdin) != NULL)
     {
-        
+        int hossz = strlen(sor)-1;
+        sor[hossz-1] = '\0'; // Enter (\n) kicserélése
+
+        if(isupper(sor[0]))
+        {
+            if(hossz > max)
+            {
+                max = hossz;
+                strcpy(max_sor,sor);
+            }
+        }
+    printf("A leghosszabb nagybetűvel kezdődő sor = %s\n Ennek hossza: %d\n", max_sor, max); // Enter beleszámítódik "Sor" hossz=4
     }
+}
+
+int main()
+{
+    beolvas_4f();
+
+    return 0;
 }
 
