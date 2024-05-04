@@ -39,9 +39,40 @@ void beolvas_4f()
     printf("A leghosszabb nagybetűvel kezdődő sor = %s\n Ennek hossza: %d\n", max_sor, max); // Enter beleszámítódik "Sor" hossz=4
 }
 
+/*
+5. Szóközök eltávolítása (állományjelig olvasás) - P105101e
+*/
+char* delete_spaces(char* s) {
+    int hossz = strlen(s);
+    char* result = calloc(hossz+1, sizeof(char)); // strlen nem számolja bele a '\0'-át, de a memória foglaláshoz szükség van rá = hossz+1
+    int idx = 0;
+
+    for(int i=0; i<hossz; i++) {
+        if(s[i] != ' ') {
+            result[idx++] = s[i]; // idx értéke kezdetileg 0, ha ++ postfixként van akkor a kifejezés végrehajtása után növeli. Eredeti értékkel meghívja a tömböt és utána növeli eggyel. idx "követi" a helyiértéket a másolás során az új tömbben
+        }
+    }
+    result[idx] = '\0'; // Utolsó másolt karakter után '\0'
+
+    return result;
+}
+
+void test_5f() {
+    FILE* f_in = fopen("feladat5.txt", "r");
+    char sor[300];
+
+    while(fgets(sor,300,f_in) != NULL) {
+        int hossz = strlen(sor);
+        sor[hossz-1] = '\0';
+
+        printf("Tisztított szöveg = %s\n", delete_spaces(sor));
+    }
+}
+
 int main()
 {
-    beolvas_4f();
+//    beolvas_4f();
+    test_5f();
 
     return 0;
 }
