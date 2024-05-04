@@ -57,15 +57,42 @@ return result;
 }
 
 
+/*
+3. Írjunk logikai függvényt, amely paraméterként megkap egy sztringet, és igaz értéket
+ad vissza, ha a sztring tükörszimmetrikus (például: kosarasok, görög)!
+*/
+int is_tukorszimetrikus (char* s)
+{
+    int hossz = strlen(s);
+    printf("%d\n",hossz);
+    int valasz = 1; // feltételezzük, hogy a válasz igaz
+
+    for(int i=0; i<hossz/2; i++)
+    {
+        if (s[i] != s[hossz-1-i])
+        {
+           valasz = 0;
+           break;
+        }
+    }
+    return valasz;
+}
+
+
 // ****main****
 int main()
 {
     char szoveg[30];
     scanf("%s",szoveg);
+//1.
 //    csere_szokozre(szoveg);
-    char* r = csere_szokozre2(szoveg);
+//    printf(%s\n", szoveg);
+//2.
+//    char* r = csere_szokozre2(szoveg);
+//    printf("%s\n",r);
+//3.
+    printf("Tükörszimmetrikus-e = %d\n", is_tukorszimetrikus(szoveg));
 
-    printf("%s\n",r);
 
     return 0;
 }
