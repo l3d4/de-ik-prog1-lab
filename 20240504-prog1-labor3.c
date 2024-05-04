@@ -14,6 +14,7 @@ Sztring kezelés
 4. Írjon programot, amely állományvégjelig (EOF) végigolvassa a standard bemenet
 sorait, és a standard kimenetre írja a nagybetűvel kezdődő sorok közül a
 leghosszabbnak a hosszát (egy egész számot)!
+Linuxon Ctrl+D -vel lehet befejezni az inputot és kiértékeltetni az eredményt.
 */
 void beolvas_4f()
 {
@@ -23,7 +24,7 @@ void beolvas_4f()
 
     while(fgets(sor, 100, stdin) != NULL)
     {
-        int hossz = strlen(sor)-1;
+        int hossz = strlen(sor);
         sor[hossz-1] = '\0'; // Enter (\n) kicserélése
 
         if(isupper(sor[0]))
@@ -34,8 +35,8 @@ void beolvas_4f()
                 strcpy(max_sor,sor);
             }
         }
-    printf("A leghosszabb nagybetűvel kezdődő sor = %s\n Ennek hossza: %d\n", max_sor, max); // Enter beleszámítódik "Sor" hossz=4
     }
+    printf("A leghosszabb nagybetűvel kezdődő sor = %s\n Ennek hossza: %d\n", max_sor, max); // Enter beleszámítódik "Sor" hossz=4
 }
 
 int main()
